@@ -8,12 +8,20 @@ figure
 % Plot the data
 plot(col_1,col_2)
 
+data_values = mat2dataset(Data.data);
+
+size(data_values);
+%Select the appropriate data for each bloch vector value
+xdata = data_values(1:20000, [1,2])
+zdata = data_values(20001:40000, [1,2])
+ydata = data_values(1:40000, [1,3])
+
 hold on
 
 plot(col_1,col_3)
 
 % Apply a Gaussian fit to both sets of data
-fun_x = fit(col_1,col_2,'gauss2')
+fun_x = fit(col_1,col_2,'gauss1')
 plot(fun_x)
 fun_x_2 = fit(col_1, col_3,'gauss1')
 plot(fun_x_2)
@@ -55,9 +63,9 @@ x_start = abs(round(mean_x - round((2*sqrt(log(2)))*sd_x)))
 
 x_finish = abs(round(mean_x + round((2*sqrt(log(2)))*sd_x)))
 
-z_start = (round(mean_z - round((2*sqrt(log(2)))*sd_z)))
+z_start = abs(round(mean_z - round((2*sqrt(log(2)))*sd_z)))
 
-z_finish = (round(mean_z + round((2*sqrt(log(2)))*sd_z)))
+z_finish = abs(round(mean_z + round((2*sqrt(log(2)))*sd_z)))
 
 y_start = abs(round(mean_y - round((2*sqrt(log(2)))*sd_y)))
 
