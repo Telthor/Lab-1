@@ -1,7 +1,6 @@
 function [rho] = Density_mat(r)
 % Normalise the vector
-norm(r)
-r_new = (1/norm(r))*r
+r_new = [r(1) * (1/normx), r(2) * (1/normy), r(3) * (1/normz)]
 
 %Pauli Matrices
 sig_i = [1 , 0; 0,1];

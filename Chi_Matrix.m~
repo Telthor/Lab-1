@@ -14,7 +14,7 @@ rho_3 = rho_x - i*rho_y - (1 - i)*(rho_0 + rho_1)/2
 x = [rho_0 rho_2; rho_3 rho_1]
 
 Chi = Lamda*(x*Lamda)
-Chi = Chi/(norm(Chi,1))
+Chi = 
 real(Chi)
 imag(Chi)
 subplot(1,2,1)
